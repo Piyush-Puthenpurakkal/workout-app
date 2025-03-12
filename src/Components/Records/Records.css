@@ -1,34 +1,86 @@
 .record {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "content btns";
+    gap: 20px;
     background-color: white;
-    width: 700px;
+    width: 100%;
+    max-width: 700px;
     padding: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px 1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px 1px;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+
+.record .content {
+    grid-area: content;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
     flex-direction: column;
     gap: 10px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px 1px, rgba(0, 0, 0, 0.3) 0px 1px 3px 1px;
-    border-radius: 5px;
-    position: relative;
-    margin-bottom: 20px;
+    align-items: flex-start;
+    /* Force content to the left */
+    text-align: left;
+    /* Ensure text is left-aligned */
+}
+
+.record .btns {
+    grid-area: btns;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+    /* Desktop: buttons on the right */
 }
 
 .record h1 {
     color: var(--primary);
+    font-size: 1.8rem;
+    margin: 0;
 }
 
-.record .btns {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+.record p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+    margin: 0;
+    /* Remove default margin if needed */
+    text-align: left;
+    /* Ensure paragraphs are left aligned */
 }
 
 .record .btns img {
     width: 40px;
     height: 40px;
+    object-fit: contain;
     cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.record .btns img:hover {
+    transform: scale(1.1);
+}
+
+/* Mobile adjustments: single column layout with buttons at left bottom */
+@media (max-width: 480px) {
+    .record {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "content"
+            "btns";
+        gap: 10px;
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .record .btns {
+        justify-content: flex-start;
+        /* Align buttons to the left on mobile */
+    }
+
+    .record .btns img {
+        width: 30px;
+        height: 30px;
+    }
 }

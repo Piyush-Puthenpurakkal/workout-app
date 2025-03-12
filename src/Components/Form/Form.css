@@ -49,6 +49,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: 0.2s;
+    margin: 0 auto;
 }
 
 .form button:hover {
@@ -73,4 +74,11 @@
     color: var(--primary);
     line-height: 23px;
     text-align: center;
+}
+
+@media (max-width: 480px) {
+    .form {
+        width: 100%;
+        padding: 20px;
+    }
 }
