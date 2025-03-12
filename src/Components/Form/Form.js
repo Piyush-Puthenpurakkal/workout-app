@@ -26,7 +26,7 @@ const Form = () => {
   const createWorkout = async (e) => {
     e.preventDefault();
     const response = await axios.post(
-      "http://localhost:4000/api/workouts/",
+      "https://workout-app-backend-zauy.onrender.com/api/workouts/",
       form,
       {
         headers: {
@@ -47,7 +47,7 @@ const Form = () => {
     e.preventDefault();
     const { _id, title, reps, load } = Updateform;
     await axios.patch(
-      `http://localhost:4000/api/workouts/${_id}`,
+      `https://workout-app-backend-zauy.onrender.com/api/workouts/${_id}`,
       {
         title,
         reps,

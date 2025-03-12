@@ -8,11 +8,14 @@ export const useLogin = () => {
   const login = async (email, password) => {
     seterror(null);
 
-    const response = await fetch("http://localhost:4000/api/user/login", {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+    const response = await fetch(
+      "https://workout-app-backend-zauy.onrender.com/api/user/login",
+      {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      }
+    );
 
     const data = await response.json();
     if (!response.ok) {

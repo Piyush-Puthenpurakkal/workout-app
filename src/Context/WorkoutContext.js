@@ -12,11 +12,14 @@ const WorkoutContext = ({ children }) => {
 
   //Get Request function
   const getWorkouts = async () => {
-    const response = await axios.get("http://localhost:4000/api/workouts/", {
-      headers: {
-        Authorization: `Bearer ${user.token}`,
-      },
-    });
+    const response = await axios.get(
+      "https://workout-app-backend-zauy.onrender.com/api/workouts/",
+      {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
     const data = response.data;
     setworkouts(data);
     // console.log(response.data);
